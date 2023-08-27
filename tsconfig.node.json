@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "skipLibCheck": true,
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    // "allowJs": true,
+    // "noEmit": true,
+    // "strict": true,
+    // "types": ["@types/node"]
+  },
+  "include": ["vite.config.ts", ".eslintrc.cjs", "importmap.ts"]
+}
