@@ -11,30 +11,13 @@ export default defineConfig(({ command, mode }) => {
     tsconfigPaths(),
     react(),
     federation({
-      name: 'root-module',
-      filename: 'root.js',
-      exposes: {},
-      // remotes: importmap[mode],
-      shared: {
-        react: {
-          requiredVersion: '17.0.2'
-        },
-        'react-dom': {
-          requiredVersion: '17.0.2'
-        },
-        'react-router-dom': {
-          requiredVersion: '5.3.4'
-        },
-        '@emotion/react': {
-          requiredVersion: '11.10.5'
-        },
-        '@emotion/styled': {
-          requiredVersion: '11.10.5'
-        },
-        '@mui/material': {
-          requiredVersion: '5.11.0'
-        }
-      }
+      name: 'commons_module',
+      filename: 'commons_module.js',
+      exposes: {
+        './Button': './src/components/Button',
+        '': './src/exposes'
+      },
+      shared: ['react', 'react-dom']
     })
   ]
 
@@ -42,6 +25,12 @@ export default defineConfig(({ command, mode }) => {
     return {
       // dev specific config
       mode: 'development',
+      server: {
+        port: 5001
+      },
+      preview: {
+        port: 5001
+      },
       plugins: [...plugins]
     }
   } else {
@@ -49,6 +38,9 @@ export default defineConfig(({ command, mode }) => {
     return {
       // build specific config
       mode: 'production',
+      build: {
+        target: 'esnext'
+      },
       plugins: [...plugins]
     }
   }

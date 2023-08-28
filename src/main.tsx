@@ -1,7 +1,6 @@
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import NotStandalone from './NotStandalone'
 
 const rootElement = ReactDOM.createRoot(
   document.getElementById('root') as Element
@@ -9,6 +8,6 @@ const rootElement = ReactDOM.createRoot(
 
 rootElement.render(
   <StrictMode>
-    <App />
+    <NotStandalone />
   </StrictMode>
 )
