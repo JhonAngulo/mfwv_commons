@@ -14,8 +14,7 @@ export default defineConfig(({ command, mode }) => {
       name: 'commons_module',
       filename: 'commons_module.js',
       exposes: {
-        './Button': './src/components/Button',
-        '': './src/exposes'
+        './Componets': './src/ComponetsExposes'
       },
       shared: ['react', 'react-dom']
     })
